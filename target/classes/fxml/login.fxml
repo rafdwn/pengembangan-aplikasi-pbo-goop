@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  Login Scene FXML
+  
+  File ini mendefinisikan UI untuk halaman login
+  Menggunakan JavaFX FXML untuk separation of concerns:
+  - FXML: Define UI structure (MVC: View)
+  - Controller: Define UI logic (MVC: Controller)
+  - Model: Data logic (sudah dibuat di package models)
+  
+  Layout menggunakan VBox dan HBox untuk struktur yang rapi
+-->
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Text?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.goop.controllers.LoginController"
+      styleClass="login-container"
+      alignment="CENTER"
+      spacing="30">
+    
+    <!-- Padding untuk container  -->
+    <padding>
+        <Insets top="50" right="50" bottom="50" left="50"/>
+    </padding>
+    
+    <!-- Header Container -->
+    <VBox alignment="CENTER" spacing="10" styleClass="header-container">
+        <!-- Logo Text -->
+        <Text text="GOOP" styleClass="logo-text"/>
+        
+        <!-- Subtitle -->
+        <Text text="Game Object-Oriented Programming" styleClass="subtitle-text"/>
+        <Text text="Sistem Pembelajaran PBO" styleClass="description-text"/>
+    </VBox>
+    
+    <!-- Login Form Container -->
+    <VBox alignment="CENTER" spacing="20" styleClass="login-form" maxWidth="400">
+        
+        <!-- Welcome Text -->
+        <Text text="Silakan Login" styleClass="welcome-text"/>
+        
+        <!-- Username Field -->
+        <VBox spacing="5">
+            <Label text="Username" styleClass="form-label"/>
+            <TextField fx:id="usernameField" promptText="Masukkan username" styleClass="form-input"/>
+        </VBox>
+        
+        <!-- Password Field -->
+        <VBox spacing="5">
+            <Label text="Password" styleClass="form-label"/>
+            <PasswordField fx:id="passwordField" promptText="Masukkan password" styleClass="form-input"/>
+        </VBox>
+        
+        <!-- Error Label -->
+        <Label fx:id="errorLabel" styleClass="error-label" managed="false" visible="false"/>
+        
+        <!-- Login Button -->
+        <Button fx:id="loginButton" text="Login" onAction="#handleLogin" styleClass="btn-primary" maxWidth="Infinity"/>
+        
+        <!-- Info Text -->
+        <VBox alignment="CENTER" spacing="5" styleClass="info-box">
+            <Text text="Kredensial Login Demo:" styleClass="info-title"/>
+            <Text text="Siswa: sandy / 123" styleClass="info-text"/>
+            <Text text="Siswa: budi / 123" styleClass="info-text"/>
+            <Text text="Guru: bambang / 123" styleClass="info-text"/>
+        </VBox>
+    </VBox>
+    
+    <!-- Footer -->
+    <VBox alignment="CENTER">
+        <Text text="© 2024 GOOP Development Team" styleClass="footer-text"/>
+        <Text text="Universitas Negeri Surabaya" styleClass="footer-text"/>
+    </VBox>
+    
+</VBox>

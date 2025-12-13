@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  Proyek Scene - Interactive Code Editor untuk mengerjakan proyek
+  Siswa dapat menulis, run, dan submit code
+-->
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.goop.controllers.ProyekController"
+            styleClass="dashboard-container">
+    
+    <top>
+        <HBox styleClass="content-area" spacing="20" alignment="CENTER_LEFT">
+            <padding><Insets top="20" right="30" bottom="10" left="30"/></padding>
+            <Button text="← Kembali" onAction="#handleBack" styleClass="btn-secondary"/>
+            <Text fx:id="titleText" text="Proyek OOP" styleClass="page-title"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Button text="📋 Daftar Proyek" onAction="#showProyekList" styleClass="btn-secondary"/>
+        </HBox>
+    </top>
+    
+    <center>
+        <ScrollPane fitToWidth="true" fitToHeight="true" style="-fx-background-color: transparent;">
+            <content>
+                <StackPane>
+                    <!-- Proyek List View -->
+                    <VBox fx:id="proyekListView" styleClass="content-area" spacing="20" visible="true" managed="true">
+                        <padding><Insets top="10" right="30" bottom="30" left="30"/></padding>
+                        
+                       <Text text="Daftar Proyek Kamu" style="-fx-font-size: 20px; -fx-font-weight: bold;"/>
+                        
+                        <!-- Proyek Cards -->
+                        <VBox fx:id="proyekCardsContainer" spacing="15"/>
+                        
+                    </VBox>
+                    
+                    <!-- Code Editor View -->
+                    <VBox fx:id="codeEditorView" styleClass="content-area" spacing="20" visible="false" managed="false">
+                        <padding><Insets top="10" right="30" bottom="30" left="30"/></padding>
+                        
+                        <!-- Proyek Info -->
+                        <VBox styleClass="card" spacing="10">
+                            <Text fx:id="editorProyekJudul" style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-fill: #5B4FC8;"/>
+                            <Label fx:id="editorProyekDeskripsi" wrapText="true" style="-fx-text-fill: #2f3542;"/>
+                            <HBox spacing="20">
+                                <Label fx:id="editorDeadline" style="-fx-font-weight: bold;"/>
+                                <Label fx:id="editorStatus"/>
+                                <Label fx:id="editorSkor" style="-fx-text-fill: #26de81; -fx-font-weight: bold;"/>
+                            </HBox>
+                        </VBox>
+                        
+                        <!-- Code Editor -->
+                        <VBox styleClass="card" spacing="10" VBox.vgrow="ALWAYS">
+                            <HBox spacing="10" alignment="CENTER_LEFT">
+                                <Text text="📝 Code Editor" style="-fx-font-size: 16px; -fx-font-weight: bold;"/>
+                                <Region HBox.hgrow="ALWAYS"/>
+                                <Label fx:id="compiledStatus" text="" style="-fx-text-fill: #747d8c; -fx-font-style: italic;"/>
+                            </HBox>
+                            
+                            <TextArea fx:id="codeEditor" 
+                                      promptText="Tulis kode Java kamu di sini..."
+                                      style="-fx-font-family: 'Courier New', monospace; -fx-font-size: 13px;"
+                                      VBox.vgrow="ALWAYS"
+                                      prefHeight="400"/>
+                            
+                            <HBox spacing="10">
+                                <Button text="▶️ Jalankan Kode" onAction="#handleRunCode" styleClass="btn-primary"/>
+                                <Button text="📤 Submit Jawaban" fx:id="btnSubmitCode" onAction="#handleSubmitCode" styleClass="btn-success"/>
+                                <Region HBox.hgrow="ALWAYS"/>
+                                <Button text="🗑️ Clear Code" onAction="#handleClearCode" styleClass="btn-secondary"/>
+                            </HBox>
+                        </VBox>
+                        
+                        <!-- Output Console -->
+                        <VBox styleClass="card" spacing="10">
+                            <Text text="📊 Output / Console" style="-fx-font-size: 16px; -fx-font-weight: bold;"/>
+                            <TextArea fx:id="outputConsole" 
+                                      editable="false"
+                                      style="-fx-font-family: 'Courier New', monospace; -fx-font-size: 12px; -fx-background-color: #2f3542; -fx-text-fill: #f8f9fa;"
+                                      prefHeight="150"
+                                      promptText="Output akan muncul di sini..."/>
+                        </VBox>
+                        
+                    </VBox>
+                </StackPane>
+            </content>
+        </ScrollPane>
+    </center>
+    
+</BorderPane>

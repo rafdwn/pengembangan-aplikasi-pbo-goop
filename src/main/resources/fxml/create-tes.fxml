@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Create Tes Scene - Form untuk Guru membuat tes kognitif baru dengan soal-soal -->
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.goop.controllers.CreateTesController"
+            styleClass="dashboard-container">
+    
+    <top>
+        <HBox styleClass="content-area" spacing="20" alignment="CENTER_LEFT">
+            <padding><Insets top="20" right="30" bottom="10" left="30"/></padding>
+            <Button text="← Kembali" onAction="#handleBack" styleClass="btn-secondary"/>
+            <Text text="Buat Tes Kognitif Baru" styleClass="page-title"/>
+        </HBox>
+    </top>
+    
+    <center>
+        <ScrollPane fitToWidth="true" fitToHeight="true" style="-fx-background-color: transparent;">
+            <content>
+                <VBox styleClass="content-area" spacing="20" maxWidth="900">
+                    <padding><Insets top="10" right="30" bottom="30" left="30"/></padding>
+                    
+                    <!-- Tes Info -->
+                    <VBox styleClass="card" spacing="15">
+                        <Text text="📝 Detail Tes" style="-fx-font-size: 18px; -fx-font-weight: bold;"/>
+                        
+                        <GridPane hgap="15" vgap="15">
+                            <Label text="Judul Tes:" GridPane.columnIndex="0" GridPane.rowIndex="0" styleClass="form-label"/>
+                            <TextField fx:id="txtJudulTes" GridPane.columnIndex="1" GridPane.rowIndex="0" 
+                                       styleClass="form-input" prefWidth="400" 
+                                       promptText="Contoh: Tes Pemahaman OOP 1"/>
+                            
+                            <Label text="Durasi (menit):" GridPane.columnIndex="0" GridPane.rowIndex="1" styleClass="form-label"/>
+                            <TextField fx:id="txtDurasi" GridPane.columnIndex="1" GridPane.rowIndex="1"
+                                      styleClass="form-input" prefWidth="100"
+                                      promptText="30"/>
+                        </GridPane>
+                    </VBox>
+                    
+                    <!-- Soal Form -->
+                    <VBox styleClass="card" spacing="15">
+                        <HBox spacing="10" alignment="CENTER_LEFT">
+                            <Text text="➕ Tambah Soal" style="-fx-font-size: 16px; -fx-font-weight: bold;"/>
+                            <Region HBox.hgrow="ALWAYS"/>
+                            <Label fx:id="lblJumlahSoal" text="Jumlah soal: 0" style="-fx-font-weight: bold;"/>
+                        </HBox>
+                        
+                        <GridPane hgap="15" vgap="10">
+                            <Label text="Pertanyaan:" GridPane.columnIndex="0" GridPane.rowIndex="0" styleClass="form-label"/>
+                            <TextArea fx:id="txtPertanyaan" GridPane.columnIndex="1" GridPane.rowIndex="0"
+                                      styleClass="form-input" prefHeight="80" wrapText="true"
+                                      promptText="Tulis pertanyaan..."/>
+                            
+                            <Label text="Pilihan A:" GridPane.columnIndex="0" GridPane.rowIndex="1" styleClass="form-label"/>
+                            <TextField fx:id="txtPilihanA" GridPane.columnIndex="1" GridPane.rowIndex="1" styleClass="form-input"/>
+                            
+                            <Label text="Pilihan B:" GridPane.columnIndex="0" GridPane.rowIndex="2" styleClass="form-label"/>
+                            <TextField fx:id="txtPilihanB" GridPane.columnIndex="1" GridPane.rowIndex="2" styleClass="form-input"/>
+                            
+                            <Label text="Pilihan C:" GridPane.columnIndex="0" GridPane.rowIndex="3" styleClass="form-label"/>
+                            <TextField fx:id="txtPilihanC" GridPane.columnIndex="1" GridPane.rowIndex="3" styleClass="form-input"/>
+                            
+                            <Label text="Pilihan D:" GridPane.columnIndex="0" GridPane.rowIndex="4" styleClass="form-label"/>
+                            <TextField fx:id="txtPilihanD" GridPane.columnIndex="1" GridPane.rowIndex="4" styleClass="form-input"/>
+                            
+                            <Label text="Jawaban Benar:" GridPane.columnIndex="0" GridPane.rowIndex="5" styleClass="form-label"/>
+                            <ComboBox fx:id="comboJawaban" GridPane.columnIndex="1" GridPane.rowIndex="5" 
+                                      prefWidth="100" promptText="Pilih..."/>
+                        </GridPane>
+                        
+                        <HBox spacing="10">
+                            <Button text="➕ Tambah Soal ke Tes" onAction="#handleTambahSoal" styleClass="btn-primary"/>
+                            <Button text="🗑️ Clear Form Soal" onAction="#handleClearSoal" styleClass="btn-secondary"/>
+                        </HBox>
+                    </VBox>
+                    
+                    <!-- List Soal -->
+                    <VBox fx:id="listSoalContainer" styleClass="card" spacing="10" visible="false" managed="false">
+                        <Text text="📋 Daftar Soal" style="-fx-font-size: 16px; -fx-font-weight: bold;"/>
+                        <VBox fx:id="soalItemsContainer" spacing="5"/>
+                    </VBox>
+                    
+                    <!-- Action Buttons -->
+                    <HBox spacing="10">
+                        <Button text="✅ Simpan Tes" onAction="#handleSimpanTes" styleClass="btn-success"/>
+                        <Button text="🗑️ Reset Semua" onAction="#handleResetAll" styleClass="btn-secondary"/>
+                    </HBox>
+                    
+                </VBox>
+            </content>
+        </ScrollPane>
+    </center>
+    
+</BorderPane>

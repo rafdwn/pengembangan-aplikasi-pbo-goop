@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  Manage Siswa Scene - Kelola data siswa (CRUD)
+  Guru dapat menambah, melihat, edit, dan hapus siswa
+-->
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.control.cell.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.goop.controllers.ManageSiswaController"
+            styleClass="dashboard-container">
+    
+    <top>
+        <HBox styleClass="content-area" spacing="20" alignment="CENTER_LEFT">
+            <padding><Insets top="20" right="30" bottom="10" left="30"/></padding>
+            <Button text="← Kembali" onAction="#handleBack" styleClass="btn-secondary"/>
+            <Text text="Kelola Data Siswa" styleClass="page-title"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Button text="+ Tambah Siswa Baru" onAction="#handleTambahSiswa" styleClass="btn-primary"/>
+        </HBox>
+    </top>
+    
+    <center>
+        <VBox styleClass="content-area" spacing="20">
+            <padding><Insets top="10" right="30" bottom="30" left="30"/></padding>
+            
+            <!-- TableView Siswa -->
+            <TableView fx:id="siswaTable" VBox.vgrow="ALWAYS">
+                <columns>
+                    <TableColumn text="ID" prefWidth="60">
+                        <cellValueFactory><PropertyValueFactory property="id"/></cellValueFactory>
+                    </TableColumn>
+                    <TableColumn text="Nama Lengkap" prefWidth="200">
+                        <cellValueFactory><PropertyValueFactory property="namaLengkap"/></cellValueFactory>
+                    </TableColumn>
+                    <TableColumn text="Username" prefWidth="120">
+                        <cellValueFactory><PropertyValueFactory property="username"/></cellValueFactory>
+                    </TableColumn>
+                    <TableColumn text="Email" prefWidth="180">
+                        <cellValueFactory><PropertyValueFactory property="email"/></cellValueFactory>
+                    </TableColumn>
+                    <TableColumn text="Skor Kognitif" prefWidth="100">
+                        <cellValueFactory><PropertyValueFactory property="skorKognitif"/></cellValueFactory>
+                    </TableColumn>
+                </columns>
+            </TableView>
+            
+            <!-- Detail Panel (untuk add/edit) -->
+            <VBox fx:id="detailPanel" styleClass="card" spacing="15" visible="false" managed="false">
+                <Text fx:id="formTitle" text="Tambah Siswa Baru" style="-fx-font-size: 18px; -fx-font-weight: bold;"/>
+                
+                <GridPane hgap="15" vgap="10">
+                    <Label text="Nama Lengkap:" GridPane.columnIndex="0" GridPane.rowIndex="0" styleClass="form-label"/>
+                    <TextField fx:id="txtNama" GridPane.columnIndex="1" GridPane.rowIndex="0" styleClass="form-input" prefWidth="300"/>
+                    
+                    <Label text="Username:" GridPane.columnIndex="0" GridPane.rowIndex="1" styleClass="form-label"/>
+                    <TextField fx:id="txtUsername" GridPane.columnIndex="1" GridPane.rowIndex="1" styleClass="form-input"/>
+                    
+                    <Label text="Password:" GridPane.columnIndex="0" GridPane.rowIndex="2" styleClass="form-label"/>
+                    <PasswordField fx:id="txtPassword" GridPane.columnIndex="1" GridPane.rowIndex="2" styleClass="form-input"/>
+                    
+                    <Label text="Email:" GridPane.columnIndex="0" GridPane.rowIndex="3" styleClass="form-label"/>
+                    <TextField fx:id="txtEmail" GridPane.columnIndex="1" GridPane.rowIndex="3" styleClass="form-input"/>
+                </GridPane>
+                
+                <HBox spacing="10">
+                    <Button text="Simpan" onAction="#handleSimpan" styleClass="btn-success"/>
+                    <Button text="Batal" onAction="#handleBatal" styleClass="btn-secondary"/>
+                </HBox>
+            </VBox>
+            
+        </VBox>
+    </center>
+    
+</BorderPane>

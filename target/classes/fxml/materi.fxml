@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  Materi Pembelajaran Scene
+  Menampilkan daftar materi pembelajaran OOP
+-->
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.goop.controllers.MateriController"
+            styleClass="dashboard-container">
+    
+    <top>
+        <HBox styleClass="content-area" spacing="20" alignment="CENTER_LEFT">
+            <padding><Insets top="20" right="30" bottom="10" left="30"/></padding>
+            <Button text="← Kembali" onAction="#handleBack" styleClass="btn-secondary"/>
+            <Text text="Materi Pembelajaran OOP" styleClass="page-title"/>
+        </HBox>
+    </top>
+    
+    <center>
+        <ScrollPane fitToWidth="true" fitToHeight="true" style="-fx-background-color: transparent;">
+            <content>
+                <VBox styleClass="content-area" spacing="20">
+                    <padding><Insets top="10" right="30" bottom="30" left="30"/></padding>
+                    
+                    <!-- Daftar Materi -->
+                    <VBox fx:id="materiContainer" spacing="15"/>
+                    
+                </VBox>
+            </content>
+        </ScrollPane>
+    </center>
+    
+</BorderPane>

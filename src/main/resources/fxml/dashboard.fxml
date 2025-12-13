@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  Dashboard Scene FXML
+  
+  Layout utama dashboard menggunakan BorderPane:
+  - LEFT: Sidebar dengan menu navigasi
+  - CENTER: Content area untuk menampilkan konten
+  - TOP: Header dengan info user (optional)
+-->
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+           fx:controller="com.goop.controllers.DashboardController"
+            styleClass="dashboard-container">
+    
+    <!-- ==================== SIDEBAR (LEFT) ==================== -->
+    <left>
+        <VBox styleClass="sidebar" minWidth="250" maxWidth="250" spacing="5">
+            
+            <!-- Logo / Title -->
+            <VBox styleClass="sidebar-title" alignment="CENTER">
+                <Text text="GOOP" style="-fx-fill: white; -fx-font-size: 28px; -fx-font-weight: bold;"/>
+                <Text text="Dashboard" style="-fx-fill: rgba(255,255,255,0.7); -fx-font-size: 14px;"/>
+            </VBox>
+            
+            <Separator style="-fx-background-color: rgba(255,255,255,0.2);"/>
+            
+            <!-- User Info -->
+            <VBox spacing="5" style="-fx-padding: 15 20;">
+                <Label fx:id="userNameLabel" text="Nama User" style="-fx-text-fill: white; -fx-font-size: 16px; -fx-font-weight: bold;"/>
+                <Label fx:id="userRoleLabel" text="Role" style="-fx-text-fill: rgba(255,255,255,0.7); -fx-font-size: 12px;"/>
+            </VBox>
+            
+            <Separator style="-fx-background-color: rgba(255,255,255,0.2);"/>
+            
+            <!-- Menu Items -->
+            <VBox fx:id="menuContainer" spacing="2" VBox.vgrow="ALWAYS">
+                
+                <Button fx:id="btnDashboard" text="📊 Dashboard" styleClass="menu-item" onAction="#showDashboard" maxWidth="Infinity"/>
+                
+                <Button fx:id="btnMateri" text="📚 Materi Pembelajaran" styleClass="menu-item" onAction="#showMateri" maxWidth="Infinity"/>
+                
+                <Button fx:id="btnProyek" text="💻 Proyek"  styleClass="menu-item" onAction="#showProyek" maxWidth="Infinity"/>
+                
+                <Button fx:id="btnTes" text="✏️ Tes Kognitif" styleClass="menu-item" onAction="#showTes" maxWidth="Infinity"/>
+                
+                <Button fx:id="btnHasil" text="📈 Hasil Belajar" styleClass="menu-item" onAction="#showHasil" maxWidth="Infinity"/>
+                
+                <!-- Guru-only menus (will be shown/hidden by controller) -->
+                <Separator fx:id="guruSeparator" style="-fx-background-color: rgba(255,255,255,0.2);" managed="false" visible="false"/>
+                
+                <Button fx:id="btnManageSiswa" text="👥 Kelola Siswa" styleClass="menu-item" onAction="#showManageSiswa" maxWidth="Infinity" managed="false" visible="false"/>
+                
+                <Button fx:id="btnMonitorNilai" text="📊 Monitor Nilai" styleClass="menu-item" onAction="#showMonitorNilai" maxWidth="Infinity" managed="false" visible="false"/>
+                
+                <Button fx:id="btnCreateProyek" text="➕ Buat Proyek" styleClass="menu-item" onAction="#showCreateProyek" maxWidth="Infinity" managed="false" visible="false"/>
+                
+                <Button fx:id="btnCreateMateri" text="➕ Buat Materi" styleClass="menu-item" onAction="#showCreateMateri" maxWidth="Infinity" managed="false" visible="false"/>
+                
+                <Button fx:id="btnCreateTes" text="➕ Buat Tes" styleClass="menu-item" onAction="#showCreateTes" maxWidth="Infinity" managed="false" visible="false"/>
+                
+            </VBox>
+            
+            <Separator style="-fx-background-color: rgba(255,255,255,0.2);"/>
+            
+            <!-- Logout Button -->
+            <Button text="🚪 Logout" styleClass="menu-item" onAction="#handleLogout" maxWidth="Infinity"/>
+            
+        </VBox>
+    </left>
+    
+    <!-- ==================== CONTENT AREA (CENTER) ==================== -->
+    <center>
+        <ScrollPane fitToWidth="true" fitToHeight="true" style="-fx-background-color: transparent;">
+            <content>
+                <VBox fx:id="contentArea" styleClass="content-area" spacing="20">
+                    
+                    <!-- Welcome Section -->
+                    <VBox spacing="10">
+                        <Text fx:id="welcomeText" text="Selamat Datang!" styleClass="page-title"/>
+                        <Text text="Silakan pilih menu di sidebar untuk memulai" style="-fx-fill: #747d8c; -fx-font-size: 14px;"/>
+                    </VBox>
+                    
+                    <!-- Dashboard Cards - Grid untuk score boxes -->
+                    <GridPane fx:id="scoreGrid" hgap="20" vgap="20" visible="true">
+                        
+                        <!-- Score Box 1: Skor Kognitif -->
+                        <VBox styleClass="score-box" spacing="10" GridPane.columnIndex="0" GridPane.rowIndex="0"
+                              prefWidth="250" prefHeight="150">
+                            <Label text="Skor Kognitif" styleClass="score-label"/>
+                            <Label fx:id="skorKognitifLabel" text="0" styleClass="score-value"/>
+                            <Label text="dari 100" styleClass="score-label"/>
+                        </VBox>
+                        
+                        <!-- Score Box 2: Jumlah Proyek -->
+                        <VBox styleClass="score-box" spacing="10" GridPane.columnIndex="1" GridPane.rowIndex="0"
+                              prefWidth="250" prefHeight="150">
+                            <Label text="Jumlah Proyek" styleClass="score-label"/>
+                            <Label fx:id="jumlahProyekLabel" text="0" styleClass="score-value"/>
+                            <Label text="proyek aktif" styleClass="score-label"/>
+                        </VBox>
+                        
+                        <!-- Score Box 3: Materi Dipelajari -->
+                        <VBox styleClass="score-box" spacing="10" GridPane.columnIndex="0" GridPane.rowIndex="1"
+                              prefWidth="250" prefHeight="150">
+                            <Label text="Materi Tersedia" styleClass="score-label"/>
+                            <Label fx:id="jumlahMateriLabel" text="0" styleClass="score-value"/>
+                            <Label text="materi OOP" styleClass="score-label"/>
+                        </VBox>
+                        
+                        <!-- Score Box 4: Tes Tersedia -->
+                        <VBox styleClass="score-box" spacing="10" GridPane.columnIndex="1" GridPane.rowIndex="1"
+                              prefWidth="250" prefHeight="150">
+                            <Label text="Tes Tersedia" styleClass="score-label"/>
+                            <Label fx:id="jumlahTesLabel" text="0" styleClass="score-value"/>
+                            <Label text="tes kognitif" styleClass="score-label"/>
+                        </VBox>
+                        
+                    </GridPane>
+                    
+                    <!-- Info Card -->
+                    <VBox styleClass="card" spacing="15" fx:id="infoCard">
+                        <Text text="Tentang Aplikasi GOOP" style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-fill: #2f3542;"/>
+                        <Text text="GOOP (Game Object-Oriented Programming) adalah aplikasi pembelajaran yang dirancang untuk meningkatkan kompetensi Object-Oriented Programming siswa menggunakan Project Based Learning." 
+                              style="-fx-fill: #747d8c; -fx-font-size: 14px;" wrappingWidth="700"/>
+                        
+                        <Text text="Fitur Aplikasi:" style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-fill: #2f3542;"/>
+                        <VBox spacing="8">
+                            <Text text="• 📚 Materi Pembelajaran OOP (Class, Object, Inheritance, Polymorphism, dll)" style="-fx-fill: #747d8c;"/>
+                            <Text text="• 💻 Manajemen Proyek OOP dengan deadline tracking" style="-fx-fill: #747d8c;"/>
+                            <Text text="• ✏️ Tes Kognitif untuk mengukur pemahaman konsep OOP" style="-fx-fill: #747d8c;"/>
+                            <Text text="• 📈 Monitoring hasil belajar dan progress siswa" style="-fx-fill: #747d8c;"/>
+                        </VBox>
+                    </VBox>
+                    
+                </VBox>
+            </content>
+        </ScrollPane>
+    </center>
+    
+</BorderPane>
