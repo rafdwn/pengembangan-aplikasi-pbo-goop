@@ -212,9 +212,11 @@ public class DashboardController {
                 btnCreateTes.setVisible(true);
                 btnCreateTes.setManaged(true);
 
-                // Guru bisa lihat semua proyek dan materi
-                btnProyek.setVisible(true);
-                btnProyek.setManaged(true);
+                // Guru TIDAK perlu menu "Proyek" - hanya siswa yang lihat proyek mereka
+                btnProyek.setVisible(false);
+                btnProyek.setManaged(false);
+
+                // Guru bisa lihat materi
                 btnMateri.setVisible(true);
                 btnMateri.setManaged(true);
             }

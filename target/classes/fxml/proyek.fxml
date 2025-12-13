@@ -82,7 +82,7 @@
                             <Text text="📊 Output / Console" style="-fx-font-size: 16px; -fx-font-weight: bold;"/>
                             <TextArea fx:id="outputConsole" 
                                       editable="false"
-                                      style="-fx-font-family: 'Courier New', monospace; -fx-font-size: 12px; -fx-background-color: #2f3542; -fx-text-fill: #f8f9fa;"
+                                      style="-fx-control-inner-background: #2f3542; -fx-font-family: 'Courier New', monospace; -fx-font-size: 13px; -fx-text-fill: #f8f9fa; -fx-highlight-fill: #5B4FC8; -fx-highlight-text-fill: white;"
                                       prefHeight="150"
                                       promptText="Output akan muncul di sini..."/>
                         </VBox>

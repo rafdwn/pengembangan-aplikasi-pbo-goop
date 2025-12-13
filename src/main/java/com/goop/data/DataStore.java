@@ -560,24 +560,44 @@ public class DataStore {
         System.out.println("✓ Created " + siswaList.size() + " siswa and " + guruList.size() + " guru");
 
         // ===== SAMPLE PROYEK =====
+        // Proyek sederhana untuk pemula
 
-        // Proyek untuk Siswa 1
-        Proyek proyek1 = new Proyek(nextProyekId++, "Aplikasi Inventory OOP",
-                "Buat aplikasi inventory barang menggunakan konsep OOP: Class, Object, Encapsulation",
+        // Proyek 1 - Hello World (untuk Sandy, siswa1 id=1)
+        Proyek proyek1 = new Proyek(nextProyekId++, "Hello World - Program Pertama",
+                "Buat program Java sederhana yang menampilkan teks 'Hello, World!' ke console.\n\n" +
+                        "Instruksi:\n" +
+                        "1. Buat class bernama HelloWorld\n" +
+                        "2. Tambahkan method main\n" +
+                        "3. Gunakan System.out.println() untuk print 'Hello, World!'\n\n" +
+                        "Contoh output:\n" +
+                        "Hello, World!",
                 LocalDate.now().plusDays(7), Proyek.STATUS_BELUM_DIKERJAKAN, 0, 1);
         proyekList.add(proyek1);
         siswa1.addProyek(proyek1.getId());
 
-        Proyek proyek2 = new Proyek(nextProyekId++, "Game Quiz Pemahaman OOP",
-                "Buat game quiz tentang konsep OOP dengan fitur scoring",
+        // Proyek 2 - Kalkulator Sederhana (untuk Sandy, siswa1 id=1)
+        Proyek proyek2 = new Proyek(nextProyekId++, "Kalkulator Sederhana",
+                "Buat program kalkulator yang bisa menjumlahkan dua angka.\n\n" +
+                        "Instruksi:\n" +
+                        "1. Buat class Calculator\n" +
+                        "2. Buat method tambah(int a, int b) yang return hasil penjumlahan\n" +
+                        "3. Test di method main dengan beberapa angka\n\n" +
+                        "Contoh output:\n" +
+                        "5 + 3 = 8",
                 LocalDate.now().plusDays(14), Proyek.STATUS_BELUM_DIKERJAKAN, 0, 1);
         proyekList.add(proyek2);
         siswa1.addProyek(proyek2.getId());
 
-        // Proyek untuk Siswa 2
-        Proyek proyek3 = new Proyek(nextProyekId++, "Sistem Perpustakaan",
-                "Implementasi sistem perpustakaan dengan Inheritance dan Polymorphism",
-                LocalDate.now().plusDays(10), Proyek.STATUS_DIKERJAKAN, 0, 2);
+        // Proyek 3 - Sapa Nama (untuk Budi, siswa2 id=2)
+        Proyek proyek3 = new Proyek(nextProyekId++, "Program Sapa Nama",
+                "Buat program yang menyapa pengguna dengan nama mereka.\n\n" +
+                        "Instruksi:\n" +
+                        "1. Buat class Sapa\n" +
+                        "2. Buat method sapaNama(String nama)\n" +
+                        "3. Method harus print 'Halo, [nama]! Selamat datang!'\n\n" +
+                        "Contoh output:\n" +
+                        "Halo, Budi! Selamat datang!",
+                LocalDate.now().plusDays(10), Proyek.STATUS_BELUM_DIKERJAKAN, 0, 2);
         proyekList.add(proyek3);
         siswa2.addProyek(proyek3.getId());
 
