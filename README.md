@@ -217,17 +217,6 @@ Pastikan `style.css` ada di `src/main/resources/css/`
 
 ---
 
-## 📝 Notes untuk UAS
-
-**Point Penting untuk Presentasi:**
-1. Tunjukkan Inheritance, Encapsulation, Polymorphism
-2. Jelaskan Singleton Pattern di DataStore
-3. Jelaskan MVC Pattern
-4. Highlight code comments yang lengkap
-5. Demo aplikasi: Login → Dashboard → Navigasi
-
----
-
 ## 👥 Referensi Jurnal
 
 - "Pengembangan Aplikasi GOOP" - Sandy Putra Pratama, Bambang Sujatmiko
