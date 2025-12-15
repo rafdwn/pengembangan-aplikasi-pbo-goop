@@ -2,14 +2,6 @@ package com.goop.models;
 
 import java.time.LocalDateTime;
 
-/**
- * Class Modul - Learning module untuk pembelajaran OOP
- * Entity terpisah dari Materi (sesuai use case diagram)
- * 
- * Konsep OOP:
- * - Encapsulation: Private fields dengan getters/setters
- * - Data model untuk learning module
- */
 public class Modul {
 
     private int id;
@@ -19,9 +11,7 @@ public class Modul {
     private int guruId; // ID guru yang membuat modul
     private LocalDateTime tanggalDibuat;
 
-    /**
-     * Constructor
-     */
+    
     public Modul(int id, String judul, String konten, String topik, int guruId) {
         this.id = id;
         this.judul = judul;

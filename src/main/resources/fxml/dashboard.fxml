@@ -61,6 +61,8 @@
                 
                 <Button fx:id="btnMonitorNilai" text="📊 Monitor Nilai" styleClass="menu-item" onAction="#showMonitorNilai" maxWidth="Infinity" managed="false" visible="false"/>
                 
+                <Button fx:id="btnHistori" text="📜 Histori Pengerjaan" styleClass="menu-item" onAction="#handleHistoriPengerjaan" maxWidth="Infinity" managed="false" visible="false"/>
+                
                 <Button fx:id="btnCreateProyek" text="➕ Buat Proyek" styleClass="menu-item" onAction="#showCreateProyek" maxWidth="Infinity" managed="false" visible="false"/>
                 
                 <Button fx:id="btnCreateMateri" text="➕ Buat Materi" styleClass="menu-item" onAction="#showCreateMateri" maxWidth="Infinity" managed="false" visible="false"/>

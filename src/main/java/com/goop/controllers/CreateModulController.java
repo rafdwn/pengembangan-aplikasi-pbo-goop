@@ -8,10 +8,6 @@ import javafx.fxml.FXML;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
-/**
- * Controller untuk Create Modul Scene
- * Guru dapat membuat modul pembelajaran baru
- */
 public class CreateModulController {
 
     @FXML

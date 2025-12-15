@@ -6,9 +6,6 @@ import com.goop.utils.SceneManager;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 
-/**
- * CreateMateriController - Form untuk Guru membuat materi baru
- */
 public class CreateMateriController {
 
     @FXML

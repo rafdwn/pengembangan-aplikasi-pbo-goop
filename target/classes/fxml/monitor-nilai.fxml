@@ -19,7 +19,7 @@
         <HBox styleClass="content-area" spacing="20" alignment="CENTER_LEFT">
             <padding><Insets top="20" right="30" bottom="10" left="30"/></padding>
             <Button text="← Kembali" onAction="#handleBack" styleClass="btn-secondary"/>
-            <Text text="Monitor Nilai dan Histori Siswa" styleClass="page-title"/>
+            <Text text="Monitor Nilai" styleClass="page-title"/>
         </HBox>
     </top>
     
@@ -60,12 +60,6 @@
                     <VBox styleClass="card" spacing="15" fx:id="historiTesCard" visible="false" managed="false">
                         <Text text="Histori Tes Kognitif" style="-fx-font-size: 18px; -fx-font-weight: bold;"/>
                         <VBox fx:id="historiTesContainer" spacing="10"/>
-                    </VBox>
-                    
-                    <!-- Status Proyek -->
-                    <VBox styleClass="card" spacing="15" fx:id="statusProyekCard" visible="false" managed="false">
-                        <Text text="Status Proyek" style="-fx-font-size: 18px; -fx-font-weight: bold;"/>
-                        <VBox fx:id="statusProyekContainer" spacing="10"/>
                     </VBox>
                     
                 </VBox>

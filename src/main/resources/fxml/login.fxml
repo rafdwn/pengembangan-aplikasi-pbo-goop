@@ -75,7 +75,7 @@
     <!-- Footer -->
     <VBox alignment="CENTER">
         <Text text="© 2024 GOOP Development Team" styleClass="footer-text"/>
-        <Text text="Universitas Negeri Surabaya" styleClass="footer-text"/>
+        <Text text="Politeknik Negeri Jakarta" styleClass="footer-text"/>
     </VBox>
     
 </VBox>
