@@ -6,7 +6,7 @@
 
 **GOOP** adalah aplikasi pembelajaran interaktif yang dirancang untuk meningkatkan kompetensi **Object-Oriented Programming (OOP)** siswa menggunakan metode **Project Based Learning** pada mata pelajaran Pemrograman Berorientasi Objek.
 
-Aplikasi ini dikembangkan berdasarkan jurnal penelitian dari Universitas Negeri Surabaya yang bertujuan membantu siswa memahami konsep OOP melalui pembelajaran berbasis proyek.
+Aplikasi ini dikembangkan berdasarkan jurnal penelitian dari Politeknik Negeri Jakarta yang bertujuan membantu siswa memahami konsep OOP melalui pembelajaran berbasis proyek.
 
 ---
 
@@ -220,7 +220,7 @@ Pastikan `style.css` ada di `src/main/resources/css/`
 ## 👥 Referensi Jurnal
 
 - "Pengembangan Aplikasi GOOP" - Sandy Putra Pratama, Bambang Sujatmiko
-- Universitas Negeri Surabaya
+- Politeknik Negeri Jakarta
 - [Link Jurnal](https://ejournal.unesa.ac.id/index.php/it-edu/article/view/61262)
 
 ---
