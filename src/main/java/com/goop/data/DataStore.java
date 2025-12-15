@@ -622,7 +622,8 @@ public class DataStore {
         // ===== SAMPLE PROYEK =====
         // Proyek sederhana untuk pemula
 
-        // Proyek 1 - Hello World (untuk Sandy, siswa1 id=1)
+        // Proyek 1 - Hello World (untuk Sandy, siswa1 id=1, created by Bambang guru
+        // id=2)
         Proyek proyek1 = new Proyek(nextProyekId++, "Hello World - Program Pertama",
                 "Buat program Java sederhana yang menampilkan teks 'Hello, World!' ke console.\n\n" +
                         "Instruksi:\n" +
@@ -631,11 +632,12 @@ public class DataStore {
                         "3. Gunakan System.out.println() untuk print 'Hello, World!'\n\n" +
                         "Contoh output:\n" +
                         "Hello, World!",
-                LocalDate.now().plusDays(7), Proyek.STATUS_BELUM_DIKERJAKAN, 0, 1);
+                LocalDate.now().plusDays(7), Proyek.STATUS_BELUM_DIKERJAKAN, 0, 1, 2);
         proyekList.add(proyek1);
         siswa1.addProyek(proyek1.getId());
 
-        // Proyek 2 - Kalkulator Sederhana (untuk Sandy, siswa1 id=1)
+        // Proyek 2 - Kalkulator Sederhana (untuk Sandy, siswa1 id=1, created by Bambang
+        // guru id=2)
         Proyek proyek2 = new Proyek(nextProyekId++, "Kalkulator Sederhana",
                 "Buat program kalkulator yang bisa menjumlahkan dua angka.\n\n" +
                         "Instruksi:\n" +
@@ -644,11 +646,11 @@ public class DataStore {
                         "3. Test di method main dengan beberapa angka\n\n" +
                         "Contoh output:\n" +
                         "5 + 3 = 8",
-                LocalDate.now().plusDays(14), Proyek.STATUS_BELUM_DIKERJAKAN, 0, 1);
+                LocalDate.now().plusDays(14), Proyek.STATUS_BELUM_DIKERJAKAN, 0, 1, 2);
         proyekList.add(proyek2);
         siswa1.addProyek(proyek2.getId());
 
-        // Proyek 3 - Sapa Nama (untuk Budi, siswa2 id=2)
+        // Proyek 3 - Sapa Nama (untuk Budi, siswa2 id=2, created by Bambang guru id=2)
         Proyek proyek3 = new Proyek(nextProyekId++, "Program Sapa Nama",
                 "Buat program yang menyapa pengguna dengan nama mereka.\n\n" +
                         "Instruksi:\n" +
@@ -657,7 +659,7 @@ public class DataStore {
                         "3. Method harus print 'Halo, [nama]! Selamat datang!'\n\n" +
                         "Contoh output:\n" +
                         "Halo, Budi! Selamat datang!",
-                LocalDate.now().plusDays(10), Proyek.STATUS_BELUM_DIKERJAKAN, 0, 2);
+                LocalDate.now().plusDays(10), Proyek.STATUS_BELUM_DIKERJAKAN, 0, 2, 2);
         proyekList.add(proyek3);
         siswa2.addProyek(proyek3.getId());
 
@@ -753,13 +755,14 @@ public class DataStore {
         System.out.println("✓ Created " + tesKognitifList.size() + " tes with " + tes1.getJumlahSoal() + " soal");
 
         // ===== SAMPLE MATERI =====
+        // All materi created by guru "Bambang Sujatmiko" (id=2)
 
         Materi materi1 = new Materi(nextMateriId++, "Pengenalan OOP",
                 "Object-Oriented Programming (OOP) adalah paradigma pemrograman yang berfokus pada konsep object. " +
                         "Object adalah instance dari class yang memiliki attributes (data) dan methods (behavior). " +
                         "OOP memiliki 4 pilar utama: Encapsulation, Inheritance, Polymorphism, dan Abstraction. " +
                         "Dengan OOP, kita bisa membuat program yang lebih modular, terstruktur, dan mudah di-maintain.",
-                "Dasar OOP");
+                "Dasar OOP", 2);
         materiList.add(materi1);
 
         Materi materi2 = new Materi(nextMateriId++, "Class dan Object",
@@ -767,7 +770,7 @@ public class DataStore {
                         "(properties/fields) dan methods (functions) yang akan dimiliki object. " +
                         "Object adalah instance atau realisasi konkret dari class. Satu class bisa digunakan untuk " +
                         "membuat banyak object. Contoh: Class 'Mobil' bisa membuat object mobil1, mobil2, dst.",
-                "Dasar OOP");
+                "Dasar OOP", 2);
         materiList.add(materi2);
 
         Materi materi3 = new Materi(nextMateriId++, "Encapsulation",
@@ -777,7 +780,7 @@ public class DataStore {
                         "mengekspos yang perlu diakses dari luar. Implementasi: menggunakan access modifiers (private, protected, public) "
                         +
                         "dan getter/setter methods.",
-                "Dasar OOP");
+                "Dasar OOP", 2);
         materiList.add(materi3);
 
         Materi materi4 = new Materi(nextMateriId++, "Inheritance (Pewarisan)",
@@ -786,17 +789,17 @@ public class DataStore {
                         "dari class lain (parent/superclass). Keuntungan: code reusability, hierarki class yang jelas, dan "
                         +
                         "memudahkan maintenance. Di Java, menggunakan keyword 'extends'. Contoh: class Siswa extends User.",
-                "Advanced OOP");
+                "Advanced OOP", 2);
         materiList.add(materi4);
 
         Materi materi5 = new Materi(nextMateriId++, "Polymorphism",
                 "Polymorphism berarti 'banyak bentuk'. Dalam OOP, polymorphism memungkinkan satu interface untuk " +
                         "digunakan dengan berbagai tipe data atau object yang berbeda. Ada 2 jenis: Compile-time polymorphism "
                         +
-                        "(method overloading) dan Runtime polymorphism (method overriding). Contoh: method toString() yang "
+                        "method overloading) dan Runtime polymorphism (method overriding). Contoh: method toString() yang "
                         +
                         "di-override di setiap class.",
-                "Advanced OOP");
+                "Advanced OOP", 2);
         materiList.add(materi5);
 
         Materi materi6 = new Materi(nextMateriId++, "Abstraction",
@@ -804,7 +807,7 @@ public class DataStore {
                         "kepada user. Fokus pada 'apa yang dilakukan' bukan 'bagaimana melakukannya'. Implementasi menggunakan "
                         +
                         "abstract class atau interface. Contoh: kita tahu mobil bisa jalan, tapi tidak perlu tahu detail mesin.",
-                "Advanced OOP");
+                "Advanced OOP", 2);
         materiList.add(materi6);
 
         System.out.println("✓ Created " + materiList.size() + " materi pembelajaran");

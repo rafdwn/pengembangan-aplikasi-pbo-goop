@@ -70,6 +70,12 @@ public class Proyek {
     private int siswaId;
 
     /**
+     * ID guru yang membuat proyek ini
+     * Untuk tracking siapa yang assign project
+     */
+    private int guruId;
+
+    /**
      * File path hasil proyek yang di-upload siswa
      * Bisa berupa path ke file .java, .zip, dll
      */
@@ -95,9 +101,10 @@ public class Proyek {
      * @param status    Status proyek
      * @param skor      Skor proyek
      * @param siswaId   ID siswa pemilik proyek
+     * @param guruId    ID guru yang membuat proyek
      */
     public Proyek(int id, String judul, String deskripsi, LocalDate deadline,
-            String status, double skor, int siswaId) {
+            String status, double skor, int siswaId, int guruId) {
         this.id = id;
         this.judul = judul;
         this.deskripsi = deskripsi;
@@ -105,6 +112,7 @@ public class Proyek {
         this.status = status;
         this.skor = skor;
         this.siswaId = siswaId;
+        this.guruId = guruId;
         this.filePath = "";
     }
 
@@ -164,6 +172,14 @@ public class Proyek {
 
     public void setSiswaId(int siswaId) {
         this.siswaId = siswaId;
+    }
+
+    public int getGuruId() {
+        return guruId;
+    }
+
+    public void setGuruId(int guruId) {
+        this.guruId = guruId;
     }
 
     public String getFilePath() {

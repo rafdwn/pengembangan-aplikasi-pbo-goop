@@ -60,6 +60,8 @@ public class DashboardController {
     private Label skorKognitifTitle, skorKognitifSubLabel;
     @FXML
     private Label jumlahProyekSubLabel, jumlahMateriSubLabel, jumlahTesSubLabel;
+    @FXML
+    private Label jumlahModulLabel;
 
     @FXML
     private VBox contentArea;
@@ -247,6 +249,12 @@ public class DashboardController {
                 btnMateri.setManaged(true);
                 btnModul.setVisible(true);
                 btnModul.setManaged(true);
+
+                // Display jumlah modul
+                int totalModul = dataStore.getAllModul().size();
+                if (jumlahModulLabel != null) {
+                    jumlahModulLabel.setText(String.valueOf(totalModul));
+                }
 
                 // Guru TIDAK punya menu "Hasil Belajar" (tidak ada di use case diagram)
                 btnHasil.setVisible(false);

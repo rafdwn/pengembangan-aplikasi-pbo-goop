@@ -92,9 +92,10 @@ public class CreateProyekController {
             return;
         }
 
-        // Create proyek
+        // Create proyek with current guru's ID
+        int guruId = dataStore.getCurrentUser().getId();
         Proyek proyek = new Proyek(0, judul, deskripsi, deadline,
-                Proyek.STATUS_BELUM_DIKERJAKAN, 0, siswa.getId());
+                Proyek.STATUS_BELUM_DIKERJAKAN, 0, siswa.getId(), guruId);
         dataStore.addProyek(proyek);
 
         SceneManager.showInfo("Berhasil!",

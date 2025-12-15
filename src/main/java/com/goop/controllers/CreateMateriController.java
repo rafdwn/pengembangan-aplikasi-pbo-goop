@@ -36,8 +36,9 @@ public class CreateMateriController {
             return;
         }
 
-        // Create materi
-        Materi materi = new Materi(0, judul, konten, topik);
+        // Create materi with current guru's ID
+        int guruId = dataStore.getCurrentUser().getId();
+        Materi materi = new Materi(0, judul, konten, topik, guruId);
         dataStore.addMateri(materi);
 
         SceneManager.showInfo("Berhasil!",

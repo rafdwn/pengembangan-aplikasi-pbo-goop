@@ -50,6 +50,12 @@ public class Materi {
      */
     private String urlResource;
 
+    /**
+     * ID Guru yang membuat materi ini
+     * Untuk tracking ownership dan audit
+     */
+    private int guruId;
+
     // ==================== CONSTRUCTORS ====================
 
     /**
@@ -66,12 +72,14 @@ public class Materi {
      * @param judul  Judul materi
      * @param konten Konten pembelajaran
      * @param topik  Topik/kategori materi
+     * @param guruId ID Guru yang membuat materi
      */
-    public Materi(int id, String judul, String konten, String topik) {
+    public Materi(int id, String judul, String konten, String topik, int guruId) {
         this.id = id;
         this.judul = judul;
         this.konten = konten;
         this.topik = topik;
+        this.guruId = guruId;
         this.urlResource = "";
     }
 
@@ -82,13 +90,15 @@ public class Materi {
      * @param judul       Judul materi
      * @param konten      Konten pembelajaran
      * @param topik       Topik/kategori materi
+     * @param guruId      ID Guru yang membuat materi
      * @param urlResource URL resource tambahan
      */
-    public Materi(int id, String judul, String konten, String topik, String urlResource) {
+    public Materi(int id, String judul, String konten, String topik, int guruId, String urlResource) {
         this.id = id;
         this.judul = judul;
         this.konten = konten;
         this.topik = topik;
+        this.guruId = guruId;
         this.urlResource = urlResource;
     }
 
@@ -132,6 +142,14 @@ public class Materi {
 
     public void setUrlResource(String urlResource) {
         this.urlResource = urlResource;
+    }
+
+    public int getGuruId() {
+        return guruId;
+    }
+
+    public void setGuruId(int guruId) {
+        this.guruId = guruId;
     }
 
     // ==================== BUSINESS METHODS ====================

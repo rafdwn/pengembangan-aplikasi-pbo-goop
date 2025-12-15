@@ -126,6 +126,14 @@
                             <Label fx:id="jumlahTesSubLabel" text="tes kognitif" styleClass="score-label"/>
                         </VBox>
                         
+                        <!-- Score Box 5: Modul Tersedia (untuk Guru) -->
+                        <VBox styleClass="score-box" spacing="10" GridPane.columnIndex="0" GridPane.rowIndex="2"
+                              prefWidth="250" prefHeight="150">
+                            <Label text="Modul Tersedia" styleClass="score-label"/>
+                            <Label fx:id="jumlahModulLabel" text="0" styleClass="score-value"/>
+                            <Label text="modul pembelajaran" styleClass="score-label"/>
+                        </VBox>
+                        
                     </GridPane>
                     
                     <!-- Info Card -->
