@@ -16,9 +16,9 @@ import javafx.scene.layout.VBox;
 import java.util.List;
 
 /**
- * MonitorNilaiController - Controller untuk monitor nilai dan histori siswa
+ * MonitorNilaiController - Controller untuk monitor nilai tes kognitif siswa
  * (Guru)
- * Menampilkan skor tes, status proyek, dan histori pengerjaan
+ * Menampilkan skor tes kognitif saja
  */
 public class MonitorNilaiController {
 
@@ -32,7 +32,7 @@ public class MonitorNilaiController {
     private Label skorTesLabel, proyekSelesaiLabel, totalProyekLabel;
 
     @FXML
-    private VBox historiTesContainer, statusProyekContainer, historiTesCard, statusProyekCard;
+    private VBox historiTesContainer, historiTesCard;
 
     private DataStore dataStore;
     private Siswa selectedSiswa;
@@ -101,9 +101,6 @@ public class MonitorNilaiController {
 
         // Load histori tes
         loadHistoriTes();
-
-        // Load status proyek
-        loadStatusProyek();
     }
 
     private void loadHistoriTes() {
@@ -145,45 +142,6 @@ public class MonitorNilaiController {
 
         historiTesCard.setVisible(true);
         historiTesCard.setManaged(true);
-    }
-
-    private void loadStatusProyek() {
-        statusProyekContainer.getChildren().clear();
-        List<Proyek> proyekList = dataStore.getProyekBySiswaId(selectedSiswa.getId());
-
-        if (!proyekList.isEmpty()) {
-            for (Proyek proyek : proyekList) {
-                HBox proyekCard = new HBox(20);
-                proyekCard.setPadding(new Insets(10));
-                proyekCard.setStyle("-fx-background-color: rgba(91, 79, 200, 0.05); -fx-background-radius: 8;");
-
-                VBox info = new VBox(5);
-                Label judul = new Label(proyek.getJudul());
-                judul.setStyle("-fx-font-weight: bold; -fx-font-size: 14px;");
-                Label detail = new Label("Deadline: " + proyek.getDeadlineFormatted());
-                detail.setStyle("-fx-text-fill: #747d8c;");
-                info.getChildren().addAll(judul, detail);
-
-                VBox statusBox = new VBox(5);
-                Label status = new Label(proyek.getStatus());
-                status.setStyle("-fx-font-weight: bold;");
-                Label skor = new Label("Skor: " + proyek.getSkor());
-                skor.setStyle("-fx-text-fill: #26de81; -fx-font-size: 16px; -fx-font-weight: bold;");
-                statusBox.getChildren().addAll(status, skor);
-
-                proyekCard.getChildren().addAll(info, new Label(), statusBox);
-                HBox.setHgrow(proyekCard.getChildren().get(1), javafx.scene.layout.Priority.ALWAYS);
-
-                statusProyekContainer.getChildren().add(proyekCard);
-            }
-        } else {
-            Label empty = new Label("Belum ada proyek yang di-assign");
-            empty.setStyle("-fx-text-fill: #747d8c;");
-            statusProyekContainer.getChildren().add(empty);
-        }
-
-        statusProyekCard.setVisible(true);
-        statusProyekCard.setManaged(true);
     }
 
     @FXML

@@ -62,12 +62,6 @@
                         <VBox fx:id="historiTesContainer" spacing="10"/>
                     </VBox>
                     
-                    <!-- Status Proyek -->
-                    <VBox styleClass="card" spacing="15" fx:id="statusProyekCard" visible="false" managed="false">
-                        <Text text="Status Proyek" style="-fx-font-size: 18px; -fx-font-weight: bold;"/>
-                        <VBox fx:id="statusProyekContainer" spacing="10"/>
-                    </VBox>
-                    
                 </VBox>
             </content>
         </ScrollPane>
